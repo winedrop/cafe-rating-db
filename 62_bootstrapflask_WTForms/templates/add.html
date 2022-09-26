@@ -1,0 +1,55 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Add a new cafe into the database</h1>
+
+      <!-- This is where your WTForm will go -->
+      <form method="POST" action="{{url_for('add_cafe')}}" novalidate>
+        <!-- need the csrf_token in order to post -->
+        {{form.csrf_token}}
+        <p>{{form.cafe.label}}</p>
+        <p>{{form.cafe(size=30)}}</p>
+
+        <p>{{form.location.label}}</p>
+        <p>{{form.location}}</p>
+
+        <p>{{form.open.label}}</p>
+        <p>{{form.open}}</p>
+
+        <p>{{form.close.label}}</p>
+        <p>{{form.close}}</p>
+
+        <p>{{form.coffee.label}}</p>
+        <p>{{form.coffee}}</p>
+
+        <p>{{form.wifi.label}}</p>
+        <p>{{form.wifi}}</p>
+
+        <p>{{form.socket.label}}</p>
+        <p>{{form.socket}}</p>
+
+        <p>{{form.submit}}</p>
+        <ul class="errors">
+          <p>Errors</p>
+          {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+          {% for error in field_errors %}
+          <li>{{ form[field_name].label }}: {{ error }}</li>
+          {% endfor %}
+          {% endfor %}
+        </ul>
+      </form>
+
+
+	  <p class="space-above"><a href="{{url_for('cafes')}}">See all cafes</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
