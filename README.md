@@ -1,7 +1,7 @@
 # cafe-rating-db
 
 # about
-Uses WTForms and Flask
+Uses WTForms, Flask, bootstrap
 Reads data cafe data from a csv and displays in a table.
 users can add new cafes through the /add path
 
