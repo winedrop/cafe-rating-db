@@ -4,11 +4,34 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 import csv
+# import sqlite3
+from models import db
+from models import Post
+# creates db
+# db = sqlite3.connect('cafe-ratings.db', timeout=10)
+# cursor = db.cursor()
+# cursor.execute("CREATE TABLE cafes (" \
+#                     "name varchar(50) NOT NULL UNIQUE," \
+#                         "location varchar(250) NOT NULL UNIQUE," \
+#                             "openTime STRING NOT NULL," \
+#                             "closeTime STRING NOT NULL," \
+#                             "coffeeRating FLOAT NOT NULL," \
+#                             "wifiRating FLOAT NOT NULL," \
+#                             "socketRating FLOAT NOT NULL)")
+
+# cursor.execute("INSERT INTO cafes VALUES('caasdfe', 'locaasdf', '6:00am', '6:00pm', '☕☕', '💪💪💪💪','🔌🔌🔌🔌')")
+# db.commit()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap5(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'
+db.app = app
+db.init_app(app)
+# db.create_all()
 
+Post(cafe_name="cname",location="location link",open_time="1:00am",close_time="1:00pm",coffee_rating="☕",wifi_rating='💪💪',socket_rating='🔌🔌🔌')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 class CafeForm(FlaskForm):
     cafe = StringField('Cafe name', validators=[DataRequired()])
