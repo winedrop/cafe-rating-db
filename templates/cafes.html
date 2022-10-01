@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid bg-dark">
   <div class="row">
     <div class="col-sm-12">
 
@@ -13,15 +13,15 @@
       <table class="table">
         <!-- cafes holds CafeRatings db by rows -->
         <th>
-          <tr style="color: black; ">
+          <tr>
  
-          <th>Cafe Name</th>
-          <th>Location</th>
-          <th>Open Time</th>
-          <th>Close Time</th>
-          <th>Coffee</th>
-          <th>Wifi</th>
-          <th>Sockets</th>
+            <th>Cafe Name</th>
+            <th>Location</th>
+            <th>Open Time</th>
+            <th>Close Time</th>
+            <th>Coffee</th>
+            <th>Wifi</th>
+            <th>Sockets</th>
 
          </tr>
         </th>
@@ -38,11 +38,11 @@
             </tr>
           {% endfor %}
       </table>
-      <p><a href="{{url_for('add_cafe')}}">Add Cafe to Rating</a></p>
-      <p><a href="{{url_for('home')}}">Return to index page</a></p>
-
+      <p><a class="text-light" href="{{url_for('add_cafe')}}">Add Cafe to Rating</a></p>
+      <p><a class="text-light" href="{{url_for('home')}}">Return to index page</a></p>
     </div>
   </div>
+  <div class="fill-remaining bg-dark"></div>
 </div>
 
 {% endblock %}
