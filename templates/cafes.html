@@ -11,12 +11,30 @@
       <h1>All Cafes</h1>
 
       <table class="table">
-        <!-- This is where you will write the code to render a Bootstrap 
-          Table that contains all the information from the 
-          cafe-data.csv file. -->
+        <!-- cafes holds CafeRatings db by rows -->
+        <th>
+          <tr style="color: black; ">
+ 
+          <th>Cafe Name</th>
+          <th>Location</th>
+          <th>Open Time</th>
+          <th>Close Time</th>
+          <th>Coffee</th>
+          <th>Wifi</th>
+          <th>Sockets</th>
+
+         </tr>
+        </th>
+
           {% for row in cafes: %}
             <tr>
-              <th>{{ row }}</th>
+              <td>{{ row.cafe_name }}</td>
+              <td>{{ row.location }}</td>
+              <td>{{ row.open_time }}</td>
+              <td>{{ row.close_time }}</td>
+              <td>{{ row.coffee_rating }}</td>
+              <td>{{ row.wifi_rating }}</td>
+              <td>{{ row.socket_rating }}</td>
             </tr>
           {% endfor %}
       </table>
