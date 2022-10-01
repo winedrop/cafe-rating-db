@@ -14,16 +14,16 @@
         <!-- need the csrf_token in order to post -->
         {{form.csrf_token}}
         <p>{{form.cafe.label}}</p>
-        <p>{{form.cafe(size=30)}}</p>
+        <p>{{form.cafe(size=30,placeholder="name of cafe")}}</p>
 
         <p>{{form.location.label}}</p>
-        <p>{{form.location}}</p>
+        <p>{{form.location(placeholder="location of cafe")}}</p>
 
         <p>{{form.open.label}}</p>
-        <p>{{form.open}}</p>
+        <p>{{form.open(placeholder="time cafe opens")}}</p>
 
         <p>{{form.close.label}}</p>
-        <p>{{form.close}}</p>
+        <p>{{form.close(placeholder="time cafe closes")}}</p>
 
         <p>{{form.coffee.label}}</p>
         <p>{{form.coffee}}</p>
